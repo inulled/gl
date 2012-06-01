@@ -1,0 +1,89 @@
+﻿/* CSS Document */
+.infobox-inner-style {
+	border-left: 2px dashed #C0C0C0;
+	font-size: small;
+	font-family: Georgia;
+}
+.slogan-right-align {
+	text-align: right;
+}
+.style13 {
+	border: 1px solid #C0C0C0;
+	padding: 5px;
+	font-family: Tahoma;
+	font-size: large;
+	border-radius: 3px;
+	outline: none;
+}
+.body {
+	background-color: #FFFFFF;
+	border-color: #E1E1E1;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius:5px;
+}
+.georgia-large {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: large;
+	font-style: italic;
+}
+.action_button {
+	background-color: #FFFFFF;
+	border: 1px solid #C0C0C0;
+	font-family: tahoma;
+	font-size: 10pt;
+	font-weight: bold;
+	padding: 4px;
+	margin: 3px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+.button1 {
+	background-image: url('images/button.png');
+	background-repeat: no-repeat;
+	font-family: verdana;
+	font-size: 9pt;
+	border: 1px solid #808080;
+	border-radius: 3px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.area1 {
+	cursor: pointer;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.box1 {
+	background-color: #EAEAEA;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-webkit-border-radius:5px;
+}
+.box-middle-border {
+	border-right: 1px dotted #EEECE8;
+}
+.right-align-button1 {
+	text-align: right;
+}
+.box-middle-style {
+	background-color: #FFFFFF;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+}

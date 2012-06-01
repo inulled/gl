@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc
+END
+odbc_result.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc/odbc_result.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc/index.html
+END
+odbc_forge.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc/odbc_forge.php
+END
+odbc_driver.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc/odbc_driver.php
+END
+odbc_utility.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/2/trunk/system/database/drivers/odbc/odbc_utility.php
+END

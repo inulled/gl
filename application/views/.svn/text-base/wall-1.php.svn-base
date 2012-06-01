@@ -1,0 +1,107 @@
+﻿<head>
+	<!-- Add jQuery library -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<!-- Add the jQuery Elastic Plugin -->
+	<script src="<?=base_url().$ldr?>scripts/lib/jquery.elastic.source.js"></script>
+
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+	$(".textarea1").elastic();
+});
+</script>
+<style type="text/css">
+.style1 {
+	font-family: Tahoma;
+	font-size: 10pt;
+}
+.status-border-bottom-box1 {
+	border-bottom: 1px dashed #CCCCCC;
+}
+.text-align-left {
+	text-align: left;
+}
+.status-updater-box1 {
+	border: 1px dashed #CDCDCD;
+	background-color: #FFFFFF;
+	border-radius: 3px;
+}
+.textarea1 {
+	padding: 5px;
+	outline: none;
+	border-radius: 2px;
+	border-color: #CDCDCD;
+	resize: none;
+	width: 292px;
+	height: 40px;
+	font-family: tahoma;
+	font-size: 9pt;
+	font-weight: normal;
+}
+.right-align-button1 {
+	text-align: right;
+}
+.button1 {
+	font-family: verdana;
+	font-size: 9pt;
+	border: 1px solid #D1D1D1;
+	border-radius: 3px;
+	color: #333333;
+	font-weight: bold;
+	background-color: #F8F8F8;
+}
+</style>
+</head>
+<table cellpadding="0" cellspacing="0" style="width: 506px;" align="left">
+<tr>
+									<td valign="top" class="text-align-left">
+									<table align="center" style="width: 100%" class="status-updater-box1">
+										<tr>
+											<td>
+					<textarea id="updater" placeholder="What's on your mind?" class="textarea1" name="TextArea2" style="width: 499px; height: -3px" cols="20" rows="1"></textarea></td>
+										</tr>
+										<tr>
+											<td class="right-align-button1">
+										<input name="share" id="login" type="submit" value="Share" style="width: 58px; height: 28px" class="button1" /></td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td id="main" valign="top" style="height: 111px; width: 506px">
+<?php	$userid = $this->session->userdata('userid');
+        $query  = $this->db->query("SELECT * FROM churchMembers WHERE cMuserId = '{$userid}'");
+        $row = $query->row();
+        $membersChurchId = $row->cMchurchId;
+        $query = $this->db->query("SELECT wp.entryData, wp.entryCreationDateTime, u.firstname, u.lastname, u.userid, u.defaultImgURI FROM users u
+                                   INNER JOIN wallPosts wp ON wp.postingUserid = u.userid
+                                   WHERE wp.wpChurchId = '{$membersChurchId}'");
+
+        foreach ($query->result() as $row) { ?>
+	        <table id="load_status_out" cellpadding="0" cellspacing="0" style="width: 500px; height: 75px" class="status-border-bottom-box1">
+	<tr>
+	<td valign="top" rowspan="3" style="width: 61px">
+	<img style="padding: 3px" id="defaultImg a0" src="<?php echo base_url().$row->defaultImgURI; ?>" width="59" height="64" />
+	</td>
+	<td valign="top" class="text-align-left" style="padding: 3px; height: 25px;">
+	<a class="font1"><?php echo $row->firstname . " " . $row->lastname; ?></a>
+	&nbsp;</td>
+		</tr>
+	<tr>
+		<td class="style1" valign="top" class="style1" style="padding: 3px; height: 25px;">
+		<?php echo $row->entryData; ?></td>
+		</tr>
+	<tr>
+		<td valign="top" class="style1" style="padding: 3px; height: 25px; width: 433px;">
+		<a class="link-font1" id="like" href="#" style="width: 138px">Like</a>
+		<span class="font2"> | </span>
+		<a id="comment" href="#" style="width: 138px" class="link-font1">Comment</a>
+		<span class="font2"> | <?php echo $row->entryCreationDateTime; ?></span>
+		</td>
+		</tr>
+</table>
+<?php } ?>
+
+									</td>
+								</tr>
+					</table>
