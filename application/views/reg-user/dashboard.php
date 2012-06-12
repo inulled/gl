@@ -142,6 +142,7 @@ $(document).ready(function() {
 <?php	$userid = $this->session->userdata('userid');
         $query = $this->db->query("SELECT * FROM churchMembers WHERE cMuserId = '{$userid}'");
         $row = $query->row();
+		if ($query->num_rows() != 0	) {
 		$membersChurchId = $row->cMchurchId;
         $query = $this->db->query("SELECT * FROM church_repo WHERE churchId = '{$membersChurchId}'");
         foreach ($query->result() as $row) {
@@ -151,11 +152,11 @@ $(document).ready(function() {
 
 					<tr>
 						<td valign="top" style="height: 19px">
-						<div class="headerFont1"><strong><?php echo $row->church_name ?></strong></div> <div class="black-font1">(Your a Member of this Church)</div></td>
+						<span class="headerFont1"><strong><?php echo $row->church_name ?></strong></span> <span class="black-font1">(Your a Member of this Church)</span></td>
 					</tr>
 					<tr>
 						<td valign="top" style="height: 19px">
-						<div class="headerFont1"><strong>Blah Blah </strong></div> <div class="black-font1">(Your Following this Church)</div></td>
+					<!--	<div class="headerFont1"><strong>Blah Blah </strong></div> <div class="black-font1">(Your Following this Church)</div></td> -->
 					</tr>
 					<tr>
 						<td valign="top" style="height: 251px">
@@ -172,6 +173,7 @@ $(document).ready(function() {
 							</a>
 						</td>
 						-->
+								<?php } } else { } ?>
 					</tr>
 				</table></td>
 			</tr>
@@ -195,5 +197,4 @@ $(document).ready(function() {
 </table>
 
 </body>
-<?php } ?>
 </html>

@@ -1,0 +1,406 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"commentData",
+				"commentDataIdwallPosts"
+			],
+			[
+				"last",
+				"lastname"
+			],
+			[
+				"entry",
+				"entryCreationDateTime"
+			],
+			[
+				"defa",
+				"defaultImgURI"
+			],
+			[
+				"entr",
+				"entryCreationDateTime"
+			],
+			[
+				"ent",
+				"entryData"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"session",
+				"sessionExpire"
+			],
+			[
+				"first",
+				"firstLastName"
+			],
+			[
+				"delpost",
+				"delPost"
+			],
+			[
+				"comment",
+				"commentBox"
+			],
+			[
+				"return",
+				"returnedCommentData"
+			],
+			[
+				"returned",
+				"returnedPostId"
+			],
+			[
+				"hi",
+				"http-equiv"
+			],
+			[
+				"link",
+				"link-font1"
+			],
+			[
+				"etry",
+				"entryCreationDateTimeJSON"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"time",
+				"timeago"
+			],
+			[
+				"en",
+				"entryDataJSON"
+			],
+			[
+				"de",
+				"defaultImgURI_JSON"
+			],
+			[
+				"DEF",
+				"defaultImgURI_JSON"
+			],
+			[
+				"wallPost",
+				"wallPostQuery1"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"post",
+				"postToWall"
+			],
+			[
+				"ps",
+				"postToWall"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/views/wall-1.php",
+			"settings":
+			{
+				"buffer_size": 11022,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/Feb-2012/KoLearningCurve/index.php",
+			"settings":
+			{
+				"buffer_size": 873,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"pacakge",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 118.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/Feb-2012/Gospel-linkSVN/Gospel-links.sublime-project",
+		"/C/Users/mike/Desktop/settings",
+		"/C/Users/mike/Downloads/SCS Deluxe.iso",
+		"/C/Users/mike/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/mike/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/mike/AppData/Roaming/Sublime Text 2/Packages/User/JSON.sublime-settings",
+		"/C/wamp/www/web_crawler/phpcrawler.class.php",
+		"/C/wamp/www/web_crawler/crawl.php",
+		"/C/wamp/www/Misc-1/tests/jplayer/music1.php",
+		"/C/wamp/www/Feb-2012/bs/application/config/autoload.php",
+		"/C/wamp/www/Feb-2012/bs/application/config/config.php",
+		"/C/wamp/www/Feb-2012/bs/application/views/home.php",
+		"/C/wamp/www/Feb-2012/bs/application/config/routes.php",
+		"/C/wamp/www/Feb-2012/bs/application/vh.php",
+		"/C/wamp/www/Feb-2012/bs/application/controllers/welcome.php",
+		"/C/wamp/www/Feb-2012/Gospel-linkSVN/application/views/wall-1.php",
+		"/C/wamp/www/Feb-2012/Gospel-linkSVN/application/views/reg-user/dashboard.php",
+		"/C/wamp/www/Feb-2012/bs/application/views/home.html",
+		"/C/wamp/www/Feb-2012/Gospel-linkSVN/application/views/full-user-listing.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/frontend.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/dashboard.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/.project",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/home.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/reg-user/loadMorePosts.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/routers.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/regUserDash.php",
+		"/C/Users/mike/Desktop/.htaccess",
+		"/C/Users/mike/Downloads/Batman Arkham City-Black Box/DVD1/BM_DVD1.iso",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/vh.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/reg-user/dashboard.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/wall-1.php",
+		"/C/Users/mike/Downloads/Sid Meiers Civilization V-SKIDROW/sr-civ5.iso",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/vh.php",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/vd/vh.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList/application/config/config.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/application/config/constants.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/application/controllers/home.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/application/config/routes.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/application/config/config.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/index.php",
+		"/C/Workspace/htdocs/Misc-2/Ci-TodoList-1/application/views/home.php",
+		"/C/Users/mike/Desktop/media3/startpage.php",
+		"/C/Users/mike/Desktop/media3/dashboard.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/vd/1.0/New/reg-userdash.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/search_aChurch.php",
+		"/C/Users/mike/Desktop/dragdrop.html",
+		"/C/Workspace/htdocs/Misc-1/kevo/old-theme1.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/vd/1.0/New/reg-userdash.css",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/dashboard.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/config/config.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/controllers/reg-userdash.php",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/application/controllers/routers.php",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/application/controllers/home.php",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/application/config/database.php",
+		"/C/Workspace/htdocs/Jan-2012/nurbell/application/views/home.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/startpage.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/member-register.php",
+		"/C/Workspace/htdocs/Feb-2012/Gospel-linkSVN/application/views/register.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"json",
+			"head",
+			"delpost",
+			"firstLastName",
+			"\">",
+			"name",
+			"commentBox",
+			"entryId",
+			">'+",
+			"index",
+			" + ' ' + ",
+			"main",
+			");",
+			"input",
+			"login",
+			"slideshow"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/views/wall-1.php",
+					"settings":
+					{
+						"buffer_size": 11022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9012,
+								9012
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/wamp/www/Feb-2012/KoLearningCurve/index.php",
+					"settings":
+					{
+						"buffer_size": 873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								873,
+								873
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/wamp/www/Feb-2012/druvla/Druvla.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

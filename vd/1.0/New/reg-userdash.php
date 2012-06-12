@@ -1,5 +1,16 @@
 <?php header('Content-type: text/css');?>
 /* Wall-1 */
+#scrollbar1 { width: 516px; clear: both; margin: 3px 0 0px; }
+#scrollbar1 .viewport { width: 500px; height: 450px; overflow: hidden; position: relative; }
+#scrollbar1 .overview { list-style: none; position: absolute; left: 0; top: 0; }
+#scrollbar1 .thumb .end,
+#scrollbar1 .thumb { background-color: #666666; }
+#scrollbar1 .scrollbar { position: relative; float: right; width: 2px; }
+#scrollbar1 .track { background-color: transparent; height: 450%; width:2px; position: relative; padding: 0 1px; }
+#scrollbar1 .thumb { height: 5px; width: 0px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+#scrollbar1 .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+#scrollbar1 .disable{ display: none; }
+
 .status-border-bottom-box1 {
 border-bottom: none /* 1px dashed #CCCCCC */;
 }
@@ -20,8 +31,8 @@ border-color: #CDCDCD;
 resize: none;
 width: 292px;
 height: 40px;
-font-family: tahoma;
-font-size: 9pt;
+font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+font-size: 11px;
 font-weight: normal;
 }
 .right-align-button1 {

@@ -3,15 +3,18 @@
 <?php include('vh.php'); ?>
 	<!-- Add elastic library -->
 	<script src="<?=base_url().$ldr?>scripts/lib/jquery.elastic.source.js"></script>
+	<script src="<?=base_url().$ldr?>scripts/lib/jquery.tinyscrollbar.min.js"></script>
 
 <meta http-equiv="Content-Language" content="en-us" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <meta name="keywords" content="church, churches, social network, web 2.0, " />
 <meta name="description" content="Introducing the first church oriented social network" />
+
 <title>Gospel-links</title>
 <script type="text/javascript">
     $(document).ready(function() {
+    $('#scrollbar1').tinyscrollbar();
     // make updater textbox elastic
     jQuery(".textarea1").elastic();
 
@@ -32,16 +35,16 @@
 	});
 
 	// process postHover()
-	jQuery(".postname").hover(function() {
+	/*jQuery(".postname").hover(function() {
 		var entryId = jQuery(e).attr("delpost");
 		jQuery("#load_status_out-"+entryId).slideUp();
-	});
+	});*/
 	// process delPost()
 	jQuery(".delpost").click(function() {
 		delPost(this);
 	});
 
-	jQuery(window).scroll(function(){
+	jQuery(window).scroll(function() {
  		if(jQuery(window).scrollTop() + 1000 > jQuery(document).height() - jQuery(window).height() ){
  			// load in next 20 posts when user scrolls to the bottom of the page
  			jQuery("#newData").load("<?=base_url()?>index.php/routers/loadMorePosts");
@@ -56,30 +59,25 @@
     	}
 	});
 
-	function wallTable(defaultImgURI, firstname, lastname, entryData, entryCreationDateTime) {
-		 return '<table id="load_status_out" cellpadding="0" cellspacing="0" style="width: 500px" class="status-border-bottom-box1">'+
-		 '<tr>'+
-		 '<td valign="top" rowspan="3" style="width: 61px">'+
-		 '<img style="padding: 3px" id="defaultImg a0" src="' + defaultImgURI + '" width="59" height="64" />'+
-		 '</td>'+
-		 '<td valign="top" class="text-align-left" style="padding: 3px">'+
-		 '<a class="font1, link-font1"><b>' + firstname + ' ' + lastname + '</br></a>'+
-		 '&nbsp;</td>'+
-		 '</tr>'+
-		 '<tr>'+
-		 '<td class="font1" valign="top" class="font1" style="padding: 2px">' + entryData + '</td>'+
-		 '</tr>'+
-		 '<tr>'+
-		 '<td valign="top" class="style1" style="padding: 2px; width: 433px;">'+
-		 '<a class="link-font1" id="like" href="#" style="width: 138px">Like</a>'+
-		 '<span class="font2"> | ' + entryCreationDateTime + '</span>'+
-		 '<input placeholder="Write a comment..." name="commentBox" class="textbox1" type="text" style="width: 95%" /></div>'+
-		 '</tr>'+
-		 '</table>'+
-		 '</td>'+
-		 '</tr>'+
-		 '</table>';
-		}
+	function wallTable(defaultImgURI, firstname, lastname, entryData, entryCreationDateTime, idWallPosts) {
+		 return '<div id="new_posts"></div>'+
+		 '<table id="load_status_out-' + idWallPosts + '" cellpadding="0" cellspacing="0" style="width: 376px; height: 63px" class="status-border-bottom-box1"><tr>'+
+		'<td valign="top" rowspan="4" style="padding: 4px; width: 465px">'+
+		'<img style="padding: 3px" id="defaultImg a0" src="' + defaultImgURI + '" width="59" height="64" />'+
+		'<a class="link-font2"><b>View Profile<br /></a><a class="delpost link-font2" delpost="' + idWallPosts + '" href="javascript:void(0)" id="delPost">Delete Post</a></td>'+
+		'<td id="del" valign="top" style="width: 458px; height: 7px;">'+
+		'<a class="font1 link-font1 postname"><b>' + firstname + ' ' + lastname + '</b></a></td>'+
+		'<td valign="top" style="height: 7px; width: 41px"></td></tr><tr>'+
+		'<td class="font1" valign="top" colspan="2" style="height: 40px">'+
+		entryData + '</tr><tr><td valign="top" colspan="2">'+
+		'<a class="link-font1" id="like" href="#" style="width: 138px">Like</a>'+
+		'<span class="font2"> | </span><a class="link-font1 commentLink" id="commentLink" rel="' + idWallPosts +'" href="javascript:void(0)" style="width: 138px">'+
+		'Comment</a><span class="font2"> | ' + entryCreationDateTime + '</span></td></tr><tr>'+
+		'<td class="style1" valign="top" colspan="2" style="height: 42px">'+
+		'<div id="commentLikeListing" style="width: 95%; display: none"></div>'+
+		'<input placeholder="Write a comment..." id="commentBox-' + idWallPosts + '" class="textbox1" style="width: 400px"></input>'+
+		'</td></tr><br></table>';
+	}
 
     function postToWall() {
 		var updater = jQuery("#updater").val();
@@ -92,7 +90,7 @@
 			json: {postedToWall: true},
 			success: function(data) {
 			if(data.postedToWall == true) {
-				var html = wallTable(data.defaultImgURI_JSON, data.firstname_JSON, data.lastname_JSON, data.entryDataJSON, data.entryCreationDateTimeJSON);
+				var html = wallTable(data.defaultImgURI_JSON, data.firstname_JSON, data.lastname_JSON, data.entryDataJSON, data.entryCreationDateTimeJSON, data.idWallPosts_JSON);
 				jQuery(html).prependTo("#new_posts").slideDown("slow");
 				// after the post is added and displayed clear form and reselect the textarea
 				jQuery("#updater").val("").focus();
@@ -101,28 +99,43 @@
 		   	}
 		  }
 	   });
+	} function addNewCommentData(defaultImgURI, firstname, lastname, returnedData) {
+		'<table cellpadding="0" cellspacing="0" style="width: 430px" class="style1 commentStyle">'+
+		'<tr>'+
+		'<td valign="top" style="width: 10px">'+
+		'<img style="padding: 3px" id="defaultImg a0" src="' + defaultImgURI + '" align="left" width="25px" height="25px" />'+
+		'</td>'+
+		'<td valign="top" style="width: 319px">'+
+		'<a class="font1 link-font1"><b>' + firstname + ' ' + lastname + ' </b></a>' + returnedData + '"<br>"' + Date.today() +
+		'</td>'+
+		'</tr>'+
+		'</table>'
 	}
-	function addComment(e) {
-		 var userid = "<?=$this->session->userdata('userid')?>"; // grab and set the Ci session to a js var
-		 var id = jQuery(e).attr("id"); // grab the commentEntry id
-		 var newId = id.replace("commentBox-", ""); // remove 'commentBox-' from the commentEntry id
-		 var commentBoxData = jQuery("#commentBox-"+id).val(); // grab the value of commentBox
-		 var dataString = commentBoxData + commentBoxData + userid + userid + newId + newId;
-	     jQuery.ajax({
-			type: "POST",
-			dataType: "JSON",
-			url: "<?=base_url()?>index.php/regUserDash/addComment",
-			data: dataString,
-			json: {commentAdded: true},
-			success: function(data) {
-			if(data.commentAdded == true) {
-				alert("Success "+data.returnedEntryId+" "+data.returnedData+" "+returnedUserId);
-			} else if(data.commentAdded == false) {
-				return false;
-		   	}
-		  }
-	   });
-	}
+		function addComment(e) {
+			var userid = "<?=$this->session->userdata('userid')?>";
+			var id = $(e).attr("id");
+			var newId = id.replace("commentBox-", "");
+			var commentBoxData = $("#commentBox-"+newId).val();
+				$.ajax({
+					type: "POST",
+					dataType: "JSON",
+					url: "<?=base_url()?>index.php/regUserDash/addComment",
+					data: {
+						commentBoxData: commentBoxData,
+						userid: userid,
+						newId: newId,
+						commentAdded: true
+					},
+					success: function(data) {
+						if (data.commentAdded === true) {
+							var html = addNewCommentData(data.defaultImgURI, data.firstname, data.lastname, data.returnedData);
+							jQuery(html).prependTo("#commentListing");
+						} else {
+							return false;
+						}
+					}
+				});
+		}
 	    function delPost(e) {
 	    // this function deletes the current post
 	    var entryId = jQuery(e).attr("delpost");
@@ -176,11 +189,6 @@
 });
     </script>
 </head>
-<style type="text/css">
-.style1 {
-	margin-bottom: 0px;
-}
-</style>
 <table cellpadding="0" cellspacing="0" style="width: 506px;" align="left">
 <tr>
 									<td valign="top" class="text-align-left">
@@ -208,10 +216,15 @@
 								</tr>
 								<tr>
 <td id="main" valign="top" style="height: 111px; width: 506px">
+<div id="scrollbar1">
+<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+<div class="viewport">
+<div class="overview">
 <?php	$this->load->helper('date');
 		$userid = $this->session->userdata('userid');
         $query  = $this->db->query("SELECT * FROM churchMembers WHERE cMuserId = '{$userid}'");
         $row = $query->row();
+		if ($query->num_rows() != 0) {
         $membersChurchId = $row->cMchurchId;
         $query = $this->db->query("SELECT wp.idwallPosts, wp.entryData, wp.entryCreationDateTime, u.firstname, u.lastname, u.userid, u.defaultImgURI FROM users u
                                    INNER JOIN wallPosts wp ON wp.postingUserid = u.userid
@@ -223,13 +236,14 @@
 	<tr>
 		<td valign="top" rowspan="4" style="padding: 4px; width: 465px">
 		<img style="padding: 3px" id="defaultImg a0" src="<?php echo base_url().$row->defaultImgURI; ?>" width="59" height="64" />
-		<a class="link-font2"><b>View Profile<br /></a><a class="delpost link-font2" delpost="<?=$row->idwallPosts?>" href="javascript:void(0)" id="delPost">Delete Post
+		<a class="link-font2"><b>View Profile<br /></a><a class="delpost link-font2" delpost="<?=$row->idwallPosts?>" href="javascript:void(0)" id="delPost">Delete Post</a>
 		</td>
 		<td id="del" valign="top" style="width: 458px; height: 7px;">
 		<a class="font1 link-font1 postname"><b><?php echo $row->firstname . " " . $row->lastname; ?></b></a>
 		</td>
 		<td valign="top" style="height: 7px; width: 41px">
 		<!-- MSCellType="empty" -->
+		</td>
 	</tr>
 	<tr>
 		<td class="font1" valign="top" colspan="2" style="height: 40px">
@@ -241,7 +255,7 @@
 		<span class="font2"> | </span>
 		<a class="link-font1 commentLink" id="commentLink" rel="<?php echo $row->idwallPosts; ?>" href="javascript:void(0)" style="width: 138px">
 		Comment</a>
-		<span class="font2"> | <?=date('m/d/Y H:ia ', strtotime($row->entryCreationDateTime))?></span>
+		<span class="font2"> | <?=date('m/d/Y h:ia ', strtotime($row->entryCreationDateTime))?></span>
 		</td>
 	</tr>
 	<tr>
@@ -253,21 +267,29 @@
 			if ($query->num_rows() > 0) { ?>
 		<div id="likeList" style="display: none; width: 95%"></div>
 		<div id="commentsList" style="width: 96%">
-		<table cellpadding="0" cellspacing="0" style="width: 430px" class="style1 commentStyle">
+		<table cellpadding="0" cellspacing="0" style="width: 408px" class="style1 commentStyle">
 		<tr>
 		<td valign="top" style="width: 10px">
 		<img style="padding: 3px" id="defaultImg a0" src="<?=base_url().$row1->defaultImgURI?>" align="left" width="25px" height="25px" />
 		&nbsp;</td>
 		<td valign="top" style="width: 319px">
-		<a class="font1 link-font1"><b><?=$row1->firstname.' '.$row1->lastname?> </b></a><?=$row1->entryData.'<br>'.date('m/d/Y H:ia ', strtotime($row1->DateTimeCreated))?></a>
+		<a class="font1 link-font1"><b><?=$row1->firstname.' '.$row1->lastname?> </b></a><?=$row1->entryData.'<br>'.date('m/d/Y h:ia ', strtotime($row1->DateTimeCreated))?></a>
 		</td>
 	</tr>
 </table>
 		</div>
 		<?php } ?>
-		<input placeholder="Write a comment..." id="commentBox-<?php echo $row->idwallPosts; ?>" class="textbox1" style="width: 423px"></input>
+		<input placeholder="Write a comment..." id="commentBox-<?php echo $row->idwallPosts; ?>" class="textbox1" style="width: 400px"></input>
 		</td>
 		</tr>
+		
 </table>
-<?php } ?>
+<?php } } else { ?>
+	<div id="commentsListNewData" class="commentStyle" style="visibility: hidden; width: 96%"></div>
+	<br>
+	<div class="font2" style="text-align: center">Sorry but you are not associated with any churches. Click <span class="link-font1" id="findChurch">here</span> to find your church.</div>
+	<?php } ?>
 		<div id="newData"></div>
+</div>
+</div>
+</td>

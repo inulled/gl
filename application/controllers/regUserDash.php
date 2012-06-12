@@ -1,6 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class regUserDash extends CI_Controller {
 	public function postToWall() {
+		$this->load->helper("date");
 		$userid = $this->session->userdata('userid');
         $query  = $this->db->query("SELECT * FROM churchMembers WHERE cMuserId = '{$userid}'");
         $row = $query->row();
@@ -14,8 +15,9 @@ class regUserDash extends CI_Controller {
 		$wallPostQuery1 = $this->db->query("SELECT * FROM wallPosts");
 		foreach ($wallPostQuery1->result() as $row) {
 			if ($row->idwallPosts == $insertedId) {
+				$idWallPostsJSON		   = $row->idwallPosts;
 				$entryDataJSON 			   = $row->entryData;
-				$entryCreationDateTimeJSON = $row->entryCreationDateTime;
+				$entryCreationDateTimeJSON = date('m/d/Y H:ia ', strtotime($row->entryCreationDateTime));
 			}
 		}
 		$usersQuery1 = $this->db->query("SELECT * FROM users");
@@ -26,7 +28,7 @@ class regUserDash extends CI_Controller {
 				$defaultImgURI_JSON = base_url().$row->defaultImgURI;
 			}
 		}
-		echo json_encode(array('postedToWall' => true, 'firstname_JSON' => $firstname_JSON, 'lastname_JSON' => $lastname_JSON, 'defaultImgURI_JSON' => $defaultImgURI_JSON, 'entryDataJSON' => $entryDataJSON, 'entryCreationDateTimeJSON' => $entryCreationDateTimeJSON));
+		echo json_encode(array('postedToWall' => true, 'idWallPosts_JSON' => $idWallPostsJSON, 'firstname_JSON' => $firstname_JSON, 'lastname_JSON' => $lastname_JSON, 'defaultImgURI_JSON' => $defaultImgURI_JSON, 'entryDataJSON' => $entryDataJSON, 'entryCreationDateTimeJSON' => $entryCreationDateTimeJSON));
 	} public function wallPostComments() {
 		// This function processes wall post comments
 
@@ -73,12 +75,22 @@ class regUserDash extends CI_Controller {
 		}
 	} public function addComment() {
 		$returnedEntryId = $this->input->post("newId");
-		$returnedData	 = $this->input->post("commentDataBox");
+		$returnedData	 = $this->input->post("commentBoxData");
 		$returnedUserId	 = $this->input->post("userid");
 		
 		$this->db->query("INSERT IGNORE INTO wallPostComments (entryData, DateTimeCreated, userid, wallPostId)
 			 			  VALUES('{$returnedData}', NOW(), '{$returnedUserId}', '{$returnedEntryId}')");
-		echo json_encode(array('returnedEntryId' => $returnedEntryId, 'returnedData' => $returnedData, 'returnedUserId' => $returnedUserId));
+
+		$usersQuery1 = $this->db->query("SELECT * FROM users");
+		foreach ($usersQuery1->result() as $row) {
+			if ($row->userid == $returnedUserId) {
+				$firstname	 	= $row->firstname;
+				$lastname 		= $row->lastname;
+				$defaultImgURI 	= base_url().$row->defaultImgURI;
+				
+				echo json_encode(array('commentAdded' => true, 'defaultImgURI' => $defaultImgURI, 'firstname' => $firstname, 'lastname' => $lastname, 'returnedEntryId' => $returnedEntryId, 'returnedData' => $returnedData, 'returnedUserId' => $returnedUserId));
+			}
+		}
 	}
 }
 ?>
