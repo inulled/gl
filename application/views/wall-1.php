@@ -99,17 +99,17 @@
 		   	}
 		  }
 	   });
-	} function addNewCommentData(defaultImgURI, firstname, lastname, returnedData) {
-		'<table cellpadding="0" cellspacing="0" style="width: 430px" class="style1 commentStyle">'+
+	} function addNewCommentData(defaultImgURI, firstname, lastname, returnedData, entryCreationDateTime) {
+		return '<table cellpadding="0" cellspacing="0" style="width: 430px" class="style1 commentStyle">'+
 		'<tr>'+
 		'<td valign="top" style="width: 10px">'+
 		'<img style="padding: 3px" id="defaultImg a0" src="' + defaultImgURI + '" align="left" width="25px" height="25px" />'+
 		'</td>'+
 		'<td valign="top" style="width: 319px">'+
-		'<a class="font1 link-font1"><b>' + firstname + ' ' + lastname + ' </b></a>' + returnedData + '"<br>"' + Date.today() +
+		'<a class="font1 link-font1"><b>' + firstname + ' ' + lastname + '</b></a>' + returnedData + '<br>' + entryCreationDateTime +
 		'</td>'+
 		'</tr>'+
-		'</table>'
+		'</table>';
 	}
 		function addComment(e) {
 			var userid = "<?=$this->session->userdata('userid')?>";
@@ -128,8 +128,8 @@
 					},
 					success: function(data) {
 						if (data.commentAdded === true) {
-							var html = addNewCommentData(data.defaultImgURI, data.firstname, data.lastname, data.returnedData);
-							jQuery(html).prependTo("#commentListing");
+							var html = addNewCommentData(data.defaultImgURI, data.firstname, data.lastname, data.returnedData, data.entryCreationDateTime);
+							jQuery(html).appendTo("#commentListing");
 						} else {
 							return false;
 						}
